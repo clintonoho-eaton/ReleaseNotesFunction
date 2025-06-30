@@ -1,0 +1,22 @@
+I have a Jira {{$issue_type}} in JSON format conforming to a provided schema, which includes keys, summary, description, and comments.
+I need you to analyze the {{$issue_type}} data:
+
+{{$issue_info}}
+
+IMPORTANT: Return ONLY a valid JSON object with no additional text, notes, or explanations before or after the JSON.
+The JSON must contain the following fields:
+
+{{$output_schema}}
+
+INSTRUCTIONS:
+- The "visibility" can be "Internal" or "External". Internal tickets reference developer processes or tools; external tickets reference customers.
+- The "probabilityRanking" (1-10) should reflect completion likelihood based on: task clarity (20%), dependencies (30%), technical complexity (25%), team feedback (15%), and codebase integration (10%).
+- The "confidenceRange" should indicate your confidence level in the probability ranking (e.g., "High", "Medium", "Low").
+- For "inferredCategories", deduce categories from the Jira item content.
+- For "keywords", identify relevant keywords based on frequency and relevance to the project.
+- The "environments" should include relevant environments from: EUS-Test, EUS-Perf, Adopter, Performance, Production.
+- In the "reasoning" field, clearly explain your probability ranking calculation and other assessments.
+
+Use your discretion with any ambiguous information.
+
+FORMAT YOUR RESPONSE AS A VALID JSON OBJECT ONLY WITH NO EXPLANATORY TEXT.

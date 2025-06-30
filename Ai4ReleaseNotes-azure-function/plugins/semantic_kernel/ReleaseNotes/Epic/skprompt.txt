@@ -1,0 +1,20 @@
+I have a Jira {{$issue_type}} in JSON format conforming to a provided schema, which includes keys, summary, description, and comments.
+I need you to analyze the {{$issue_type}} data:
+
+{{$issue_info}}
+
+IMPORTANT: Return ONLY a valid JSON object with no additional text, notes, or explanations before or after the JSON.
+The JSON must contain the following fields:
+
+{{$output_schema}}
+
+INSTRUCTIONS:
+- The "executive_summary" should summarize the {{$issue_type}} and child Jira issues in 1-3 sentences for a non-technical customer.
+- The "technical_summary" should summarize the {{$issue_type}} and child issues in 1-3 sentences for technical experts, including steps taken and bugs encountered.
+- For "inferredCategories", deduce categories from the Jira item based on content analysis.
+- For "keywords", identify relevant keywords based on frequency and relevance to the project scope.
+- For "child_issues", describe each child issue in the format 'CHILD_KEY:CHILD_DESCRIPTION'.
+
+Use your discretion to reason the best you can with any ambiguous or conflicting information.
+
+FORMAT YOUR RESPONSE AS A VALID JSON OBJECT ONLY WITH NO EXPLANATORY TEXT.

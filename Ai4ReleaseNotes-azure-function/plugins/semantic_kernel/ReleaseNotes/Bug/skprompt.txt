@@ -1,0 +1,22 @@
+I have a Jira {{$issue_type}} in JSON format conforming to a provided schema, which includes keys, summary, description, and comments.
+I need you to analyze the {{$issue_type}} data:
+
+{{$issue_info}}
+
+IMPORTANT: Return ONLY a valid JSON object with no additional text, notes, or explanations before or after the JSON.
+The JSON must contain the following fields:
+
+{{$output_schema}}
+
+INSTRUCTIONS:
+- Extract the "ticket_number" from the summary field. It will be in the format of 'INCXXXXXXXXXXXX'.
+- The "visibility" can be "Internal" or "External". Internal tickets reference developer and team processes or tools, external tickets reference customers or customer use cases.
+- The "executive_summary" should summarize the {{$issue_type}} in 1 sentence that a non-technical person could understand.
+- The "technical_summary" should summarize the {{$issue_type}} in 1 sentence that an expert technical person could understand.
+- The "cause" should be a concise summary of what you think the cause of the bug was.
+- The "fix" should be a concise summary of what you think the fix for the bug was.
+- The "reasoning" should articulate your reasoning for the "cause" and "fix" fields.
+
+Use your discretion to reason the best you can in the presence of ambiguous or conflicting information.
+
+FORMAT YOUR RESPONSE AS A VALID JSON OBJECT ONLY WITH NO EXPLANATORY TEXT.
